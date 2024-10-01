@@ -1,28 +1,27 @@
 ﻿using System;
-namespace Module_IV_API
+namespace Patient
 {
-	public class Donor
-	{
- 
-        public string MedicalRecordNumber { get; set; }
+    public class Donor
+    {
+        public Donor()
+        { }
+        public string LastName { get; set; }
         public string FirstName { get; set; }
         public string BloodType { get; set; }
-        public string LastName { get; set; }
+        public string Address { get; set; }
+        public DateTime Birthday { get; set; }
 
+        public string GetAge()
+        { return getAge(); }
 
-        public Donor()
+        private string getAge()
         {
-        }
-
-        public Donor(string medicalRecordNumber, string firstName, string bloodType, string lastName)
-        {
-            this.MedicalRecordNumber = medicalRecordNumber;
-            this.FirstName = firstName;
-            this.BloodType = bloodType;
-            this.LastName = lastName;
+            if (Birthday == DateTime.MinValue)
+            {
+                return "Unknown";
+            }
+            return (DateTime.Now.Year - Birthday.Year).ToString();
         }
     }
-    }
-	
-
+}
 
